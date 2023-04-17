@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bondi</title>
+  <!-- Roboto Font File -->
+  <link rel="stylesheet" href="css/robotofont.css" />
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Main CSS File -->
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Compontents CSS File -->
+  <link rel="stylesheet" href="css/components.css" />
+  <!---------------------------Scripts--------------------------->
+  <!-- Bootstrap Bundle File (Popper included) -->
+  <script src="js/bootstrap.bundle.min.js" defer></script>
+  <!-- Font Awesome Js File -->
+  <script src="js/all.min.js" defer></script>
+  <!-- Main Js File -->
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Search modal -->
+
+  <!-- Start Search Modal  -->
+  <div class="search-modal modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+        </div>
+        <div class="modal-body">
+          <form class="row  gy-2 gy-lg-0 justify-content-center">
+            <div class="col-lg-5">
+              <label for="searchInput" class="visually-hidden">Search term</label>
+              <input type="text" class="form-control" id="searchInput" placeholder="Enter search term">
+            </div>
+            <div class="col-auto col-lg-2">
+              <button type="submit" class="btn btn-primary w-100">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Search Modal  -->
+  <!-- Start Login/Register Modal -->
+  <div class="login-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login/Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="tab" role="tab" aria-controls="login"
+                aria-selected="true" data-bs-target="#login-tab-pane">Login</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="register-tab" data-bs-toggle="tab" role="tab" aria-controls="register"
+                aria-selected="false" data-bs-target="#register-tab-pane">Register</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <!-- Login Tab Content -->
+            <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab">
+              <form>
+                <div class="form-group">
+                  <label for="login-email">Email address</label>
+                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Password</label>
+                  <input type="password" class="form-control" id="login-password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+            <!-- Register Tab Content -->
+            <div class="tab-pane fade" id="register-tab-pane" role="tabpanel" aria-labelledby="register-tab">
+              <form>
+                <div class="form-group">
+                  <label for="register-name">Name</label>
+                  <input type="text" class="form-control" id="register-name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                  <label for="register-email">Email address</label>
+                  <input type="email" class="form-control" id="register-email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="register-password">Password</label>
+                  <input type="password" class="form-control" id="register-password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Login/Register Modal -->
+  <!-- Start Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="website logo" /></a>
+        <button class="navbar-toggler border-white text-white py-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item fw-semibold">
+              <a class="nav-link p-2 p-lg-3 text-white active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item fw-semibold">
+              <a class="nav-link p-2 p-lg-3 text-white" href="#services">Services</a>
+            </li>
+            <li class="nav-item fw-semibold">
+              <a class="nav-link p-2 p-lg-3 text-white" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item fw-semibold">
+              <a class="nav-link p-2 p-lg-3 text-white" href="#about">About</a>
+            </li>
+            <li class="nav-item fw-semibold">
+              <a class="nav-link p-2 p-lg-3 text-white" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <div class="vr d-none d-lg-block align-self-center vertical-rule opacity-100"></div>
+          <div class="d-flex align-items-center justify-content-center gap-2 gap-lg-0">
+            <button role="search" class="border-0 bg-transparent search-button mx-lg-2" data-bs-toggle="modal"
+              data-bs-target="#searchModal">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </button>
+            <button type="button" class="btn rounded-pill main-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header -->
+  <!-- Start Landing Section -->
+  <section class="landing d-flex align-items-center justify-content-center">
+    <div class="container-fluid text-center landing-text">
+      <h1 class="text-white fw-normal">Taste the Creativity</h1>
+      <p class="mb-5 fw-bold fs-6 text-white" style="--bs-text-opacity: .5;">We make awesome graphic and web design
+      </p>
+      <a href="#" class="btn main-btn rounded-pill px-4 py-2">
+        Get Started
+      </a>
+    </div>
+  </section>
+  <!-- End Landing Section -->
+  <!-- Start Features Section -->
+  <section class="features bg-white py-5" id="services">
+    <div class="main-heading text-center position-relative pb-3 my-5">
+      <img src="images/title.png" alt="section heading image" />
+      <h2 class="mt-3 mb-1 h3">We are good at</h2>
+      <span class="main-heading-desc text-uppercase fw-bold text-dark" style="--bs-text-opacity: .5;">
+        Some of these stuffs under
+      </span>
+    </div>
+    <div class="container pt-5">
+      <div class="featboxes-container row gy-5 gx-md-3 justify-content-md-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="feat-box z-3 position-relative text-center pb-2">
+            <i class="fa-solid fa-pencil feat-icon"></i>
+            <h3 class="feat-title text-uppercase fw-bold my-3">
+              graphic design
+            </h3>
+            <p class="feat-desc lead text-dark" style="--bs-text-opacity:.7">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, vero fugiat ducimus distinctio reiciendis
+              in?
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feat-box z-3 position-relative text-center pb-2">
+            <i class="fa-solid fa-tv feat-icon"></i>
+            <h3 class="feat-title text-uppercase fw-bold my-3">
+              graphic design
+            </h3>
+            <p class="feat-desc lead text-dark" style="--bs-text-opacity:.7">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, vero fugiat ducimus distinctio reiciendis
+              in?
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8 col-lg-4">
+          <div class="feat-box z-3 position-relative text-center pb-2">
+            <i class="fa-solid fa-plug feat-icon"></i>
+            <h3 class="feat-title text-uppercase fw-bold my-3">
+              graphic design
+            </h3>
+            <p class="feat-desc lead text-dark" style="--bs-text-opacity:.7">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, vero fugiat ducimus distinctio reiciendis
+              in?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- End Features Section -->
+  <!-- Start Our Work Section -->
+  <section class="our-work py-5" id="portfolio">
+    <div class="main-heading text-center position-relative pb-3 my-5">
+      <img src="images/title.png" alt="section heading image" />
+      <h2 class="mt-3 mb-1 h3">We Make This</h2>
+      <span class="main-heading-desc text-uppercase fw-bold text-dark" style="--bs-text-opacity: .5;">
+        Prepare to be amazed
+      </span>
+    </div>
+    <div class="container">
+      <ul class="nav justify-content-center gap-2">
+        <li class="nav-item">
+          <button class="btn rounded-pill active" aria-selected="true" data-filter=".all">All</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn rounded-pill" aria-selected="false" data-filter=".design-cat">Design</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn rounded-pill" aria-selected="false" data-filter=".code-cat">Code</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn rounded-pill" aria-selected="false" data-filter=".photo-cat">Photo</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn rounded-pill" aria-selected="false" data-filter=".app-cat">App</button>
+        </li>
+      </ul>
+      <div class="work-container row gy-4 mt-4 mb-5 justify-content-center" id="workContainer">
+        <div class="col-md-6 col-lg-3 all photo-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="photo">
+            <img src="images/work-01.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all design-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="design">
+            <img src="images/work-02.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all code-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="code">
+            <img src="images/work-03.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all code-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="code">
+            <img src="images/work-04.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all design-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="design">
+            <img src="images/work-05.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all app-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="application">
+            <img src="images/work-06.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all photo-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="photo">
+            <img src="images/work-07.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 all app-cat">
+          <div class="work-box bg-white overflow-hidden position-relative" data-work="application">
+            <img src="images/work-08.jpg" alt="work image" class="img-fluid" />
+          </div>
+        </div>
+
+      </div>
+      <button type="button" class="btn main-btn rounded-pill mx-auto d-block" role="button" aria-expanded="false"
+        aria-controls="workContainer">
+        I WANT MORE
+      </button>
+    </div>
+
+  </section>
+  <!-- End Our Work Section -->
+  <!-- Start Stuffs Section -->
+  <section class="stuffs bg-white pt-5 pb-5 pb-lg-0">
+    <div class="main-heading text-center position-relative pb-3 mb-5">
+      <img src="images/title.png" alt="section heading image" />
+      <h2 class="mt-3 mb-1 h3">Some Stuff About Us</h2>
+      <span class="main-heading-desc text-uppercase fw-bold text-dark" style="--bs-text-opacity: .5;">
+        The Great Team
+      </span>
+    </div>
+    <p class="desc lead mx-auto text-center mb-5 px-3 fs-6">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ea facilis eaque nihil voluptatum eligendi.
+    </p>
+    <div class="container">
+      <div class="row align-items-center gy-3 gy-lg-0">
+        <!-- First Column -->
+        <div class="col-lg-5 text-center text-lg-start order-2 order-lg-0">
+          <div class="text">
+            <h4 class="h3 mb-2">
+              Retina Design
+            </h4>
+            <p class="lead fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum illo modi inventore ut
+              culpa quae.</p>
+            <p class="lead fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum illo modi inventore ut
+              culpa quae.</p>
+            <a class="btn rounded-pill main-btn" href="#" role="button">ORDER ME ONE</a>
+          </div>
+        </div>
+        <!-- Second Column -->
+        <div class="col-lg-7 order-1 order-lg-0">
+          <div class="image-box">
+            <img class="img-fluid" src="images/laptop.png" alt="laptop image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Stuffs Section -->
+  <!-- Start Team Section -->
+  <section class="team py-5 text-center" id="about">
+    <div class="container py-4">
+      <div class="text  mb-5">
+        <h5 class="teamsec-heading h1 fw-bold">
+          Meet The Team
+        </h5>
+        <p class="lead fs-6">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione eligendi animi officia, magni
+          libero porro consequatur distinctio vero commodi cum?
+        </p>
+      </div>
+      <div class="row gy-3 gy-lg-0">
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0 rounded-0">
+            <img src="images/team-1.png" class="card-img-top rounded-top-0" alt="team member photo">
+            <h5 class="card-title text-capitalize text-white  p-3 mb-0 fs-4">luke skywalker</h5>
+            <div class="card-body ">
+              <q class="card-text">
+                I don't understand how we got by those troops. I thought we were dead.
+              </q>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 ">
+          <div class="card border-0 rounded-0">
+            <img src="images/team-2.png" class="card-img-top rounded-top-0" alt="team member photo">
+            <h5 class="card-title text-capitalize text-white  p-3 mb-0 fs-4">luke skywalker</h5>
+            <div class="card-body ">
+              <q class="card-text">
+                I don't understand how we got by those troops. I thought we were dead.
+              </q>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0 rounded-0">
+            <img src="images/team-3.png" class="card-img-top rounded-top-0" alt="team member photo">
+            <h5 class="card-title text-capitalize text-white  p-3 mb-0 fs-4">luke skywalker</h5>
+            <div class="card-body ">
+              <q class="card-text">
+                I don't understand how we got by those troops. I thought we were dead.
+              </q>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card border-0 rounded-0">
+            <img src="images/team-4.png" class="card-img-top rounded-top-0" alt="team member photo">
+            <h5 class="card-title text-capitalize text-white  p-3 mb-0 fs-4">luke skywalker</h5>
+            <div class="card-body ">
+              <q class="card-text">
+                I don't understand how we got by those troops. I thought we were dead.
+              </q>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Team Section -->
+  <!-- Start Tech Section -->
+  <section class="tech py-5 text-center">
+    <div class="container py-3">
+      <div class="row align-items-center gy-4 gy-lg-0">
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-1.png" alt="technology image" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-2.png" alt="technology image" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-3.png" alt="technology image" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-4.png" alt="technology image" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-1.png" alt="technology image" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="image-box">
+            <img class="img-fluid" src="images/tech-2.png" alt="technology image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Tech Section -->
+  <!-- Start Project Section -->
+  <section class="project py-5 text-center" id="contact">
+    <div class="container">
+      <h6 class="h3 mb-4 text-white fw-bold">
+        Start Your Project Now
+      </h6>
+      <p class="desc lead mb-5 text-white fw-bold fs-6" style="--bs-text-opacity:.5">
+        Leave your description and we start the engine.Don't worry, you can cancel anytime.
+      </p>
+      <a class="btn rounded-pill main-btn" href="#" role="button">START PROJECT</a>
+    </div>
+  </section>
+  <!-- End Project Section -->
+  <!-- Start Blog Section -->
+  <section class="blog py-5" id="blog">
+    <div class="container py-4">
+      <div class="main-heading text-center position-relative pb-3 mb-5">
+        <img src="images/title.png" alt="section heading image" />
+        <h2 class="mt-3 mb-1 h3">Some Stuff About Us</h2>
+        <span class="main-heading-desc text-uppercase fw-bold text-dark" style="--bs-text-opacity: .5;">
+          The Great Team
+        </span>
+      </div>
+      <div class="row gy-3 gy-lg-0 justify-content-md-center" id="blogsContainer">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="images/blog-1.jpg" class="card-img-top" alt="blog post image">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-body-secondary">Jan 17,2022</h6>
+              <h5 class="card-title">Awesome Blog Title Here</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="images/blog-2.jpg" class="card-img-top" alt="blog post image">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-body-secondary">Jan 17,2022</h6>
+              <h5 class="card-title">Awesome Blog Title Here</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img src="images/blog-3.jpg" class="card-img-top" alt="blog post image">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-body-secondary">Jan 17,2022</h6>
+              <h5 class="card-title">Awesome Blog Title Here</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn main-btn rounded-pill mx-auto d-block mt-5" role="button" aria-expanded="false"
+        aria-controls="blogsContainer">
+        MORE STORIES
+      </button>
+    </div>
+  </section>
+  <!-- End Blog Section -->
+  <!-- Start Subscribe Section -->
+  <section class="sub py-5">
+    <div class="container">
+      <form class="row align-items-center justify-content-center ">
+        <div class="col-lg-auto">
+          <label for="emailAddress" class="form-label text-center text-lg-start d-block fs-4  fw-bold">Subscribe to our
+            Newsletter:</label>
+        </div>
+        <div class="col row align-items-center justify-content-center">
+          <div class="col-lg-8 mb-3 mb-lg-0">
+            <div class="form-floating">
+              <input type="email"
+                class="email-input form-control bg-transparent border-start-0 border-end-0 border-top-0 border-2 border-white rounded-0"
+                id="emailAddress" placeholder="Enter Email Address">
+              <label for="emailAddress" class="form-label fw-bold">Email Address:</label>
+            </div>
+
+          </div>
+          <div class="col-auto">
+            <input type="submit" class="subscribe-btn bg-black btn rounded-pill" value="Subscribe" />
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+  <!-- End Subscribe Section -->
+  <!-- Start Footer -->
+  <footer class="py-5" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="mb-3 d-block text-center text-lg-start">
+            <img src="images/logo.png" alt="website logo" />
+          </a>
+          <p class="lead mb-5 text-white fs-5" style="--bs-text-opacity: 0.5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, tempore? Inventore repellat
+            minima cupiditate dolorem?
+          </p>
+          <p class="lead copyrights text-white fs-5" style="--bs-text-opacity: 0.5">
+            Created By <span class="created-by fw-bold">Graphberry</span>
+            <br>
+            &copy; 2022 - <span class="design-name fw-bold">Bondi Inc</span>
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="row links-container">
+            <div class="col-6">
+              <span class="fs-5 text-white fw-bold d-block ps-3">
+                Links
+              </span>
+              <ul class="nav flex-column gap-1">
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#services">Our Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#support">Support</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#footer">Terms and Condition</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <span class="fs-5 text-white fw-bold d-block ps-3">
+                About Us
+              </span>
+              <ul class="nav flex-column gap-1">
+                <li class="nav-item">
+                  <button class="nav-link text-white w-100 text-start" style="--bs-text-opacity:0.5" role="navigation"
+                    data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link text-white w-100 text-start" style="--bs-text-opacity:0.5" role="navigation"
+                    data-bs-toggle="modal" data-bs-target="#loginModal">Register</button>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#footer">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" style="--bs-text-opacity:0.5" href="#support">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-3 mt-lg-0" id="support">
+          <div class="text-center text-lg-start">
+            <span class="fs-5 text-white fw-bold d-block mb-4">
+              Contact Us
+            </span>
+            <p class="lead text-white fs-5 mb-5 pb-3" style="--bs-text-opacity:0.5">
+              Get in touch with us via mail phone.We are waiting for your call or message
+            </p>
+            <a href="mailto:graphberry@gmail.com" class="btn main-btn rounded-pill w-100">graphberry@gmail.com</a>
+            <ul
+              class="nav social-media-list gap-3 align-items-center mt-3 justify-content-center justify-content-lg-start">
+              <li class="nav-item">
+                <a class="facebook-link nav-link p-0" href="#">
+                  <i class="fa-brands fa-facebook fa-lg text-white  icon rounded-circle p-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="twitter-link nav-link p-0" href="#">
+                  <i class="fa-brands fa-twitter  fa-lg text-white  icon rounded-circle p-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="linkedin-link nav-link p-0" href="#">
+                  <i class="fa-brands fa-linkedin fa-lg text-white  icon rounded-circle p-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="youtube-link nav-link p-0" href="#">
+                  <i class="fa-brands fa-youtube  fa-lg text-white  icon rounded-circle p-2"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+</body>
+
+</html>

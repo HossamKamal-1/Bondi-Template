@@ -1,0 +1,25 @@
+/* Start Main Btn Component */
+.main-btn {
+  color: var(--yellow-color);
+  background-color: var(--red-color);
+  transition: var(--link-hover-transdur);
+}
+.main-btn:hover,
+.main-btn:focus {
+  color: white;
+  background-color: var(--alt-red-color);
+  box-shadow: 0 0 8px 1px #20c997;
+}
+/* End Main Btn Component */
+/* Start Main Section Heading Component */
+.main-heading::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+/* End Main Section Heading Component */
